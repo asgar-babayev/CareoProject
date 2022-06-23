@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<CareoBack.Models.Customer>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td><img width="70" src="~/assets/images/@item.Image" /></td>
+                    <td>@item.Name</td>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td><a asp-controller="Customer" asp-action="Edit" asp-area="Manage" asp-route-id="@item.Id" class="text-info">Edit</a></td>
+                    <td><a asp-controller="Customer" asp-action="Delete" asp-area="Manage" asp-route-id="@item.Id" class="text-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <a asp-controller="Customer" asp-action="Create" asp-area="Manage" class="btn btn-primary">Create</a>
+    <h1 class="display-4">Customer page is empty</h1>
+}
+

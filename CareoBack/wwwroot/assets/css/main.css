@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    padding: 20px 0px !important;
+    font-size: 17px !important;
+    font-weight: bold;
+}
+
+.logo {
+    padding: 0px 80px !important;
+}
+
+
+.btnreadmore {
+    background-color: white;
+    padding: 18px 80px;
+    border: none;
+    transition: 0.3s ease;
+}
+
+    .btnreadmore:hover {
+        color: white;
+        background-color: rgb(19, 19, 19);
+    }
+
+.btnread2 {
+    background-color: rgb(19, 19, 19);
+    color: white;
+    font-size: 17px;
+    border: none;
+    padding: 18px 80px;
+    transition: 0.5s ease;
+}
+
+.card {
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+
+    .btnread2, .card:hover {
+        background-color: #BD193B;
+        color: white;
+        border-radius: 15px;
+    }
+
+@media (max-width:845px) {
+    iframe {
+        width: 365px;
+        height: 250px;
+    }
+
+    .icon1 {
+        width: 20px !important;
+    }
+
+    .customerimg {
+        width: 200px !important;
+    }
+
+    .carousel-inner > .carousel-item > .carousel-caption > .d-flex > .sliderimg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.918);
+}
+
+    footer a {
+        transition: 0.3s ease;
+    }
+
+        footer a:hover {
+            color: #BD193B;
+        }
+
+    footer h3, p {
+        color: white;
+    }
+
+.sub_btn {
+    font-size: 16px;
+    transition: ease-in all 0.5s;
+    background-color: #a4152d;
+    color: #fff;
+    padding: 9px 0px;
+    max-width: 174px;
+    border: #fff solid 3px;
+    width: 100%;
+    display: block;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 30px;
+    margin-left: -45px;
+}

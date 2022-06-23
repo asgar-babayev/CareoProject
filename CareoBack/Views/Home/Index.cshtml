@@ -1,0 +1,394 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using CareoBack.Models
+@model List<Customer>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careo</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="~/assets/css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"
+         style="background-image: url(/../assets/images/header_bg.jpg); background-size: cover; background-position: center;">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarCenteredExample" aria-controls="navbarCenteredExample" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="las la-bars"></i>
+            </button>
+
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+                <!-- Left links -->
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">Service</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">Customer</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            <a class="nav-link" asp-controller="Auth" asp-action="Register" asp-area="Manage">Register</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a class="nav-link" asp-controller="Auth" asp-action="" asp-area="Manage">Login</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-controller="Auth" asp-action="SignOut" asp-area="Manage">Log out</a>
+                        </li>
+                    }
+                    <li>
+                        <a class="nav-link logo" href=""><img src="~/assets/images/logo.png" alt=""></a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">Call: (+71) 1234567890</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#">Email: demo@gmail.com</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#"><i class="fs-4 las la-search"></i></a>
+                    </li>
+                </ul>
+                <!-- Left links -->
+            </div>
+            <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+    </nav>
+    <header>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img width=100 src="~/assets/images/banner.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="d-flex justify-content-lg-center">
+                            <div class="d-flex flex-column justify-content-lg-start">
+                                <h2 class="text-lg-start title" style="font-size: 50px; padding-top: 70px;">
+                                    WELCOME TO
+                                </h2>
+                                <h1 style="font-size: 150px;">LABSPA</h1>
+                                <p class="text-lg-start desc">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Facere dignissimos cumque
+                                    temporibus, nam unde inventore iure necessitatibus sunt, expedita similique,
+                                    perferendis magni ea aspernatur. Quidem veritatis deserunt voluptas unde excepturi?
+                                </p>
+                                <div class="d-flex gap-3">
+                                    <button class="btnreadmore">Read More</button>
+                                    <button class="btnreadmore">Book Now</button>
+                                </div>
+                            </div>
+                            <img class="sliderimg" src="~/assets/images/girl.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img width=100 src="~/assets/images/banner.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="d-flex justify-content-lg-center">
+                            <div class="d-flex flex-column justify-content-lg-start">
+                                <h2 class="text-lg-start" style="font-size: 50px; padding-top: 70px;">
+                                    WELCOME TO
+                                </h2>
+                                <h1 style="font-size: 150px;">LABSPA</h1>
+                                <p class="text-lg-start">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Facere dignissimos cumque
+                                    temporibus, nam unde inventore iure necessitatibus sunt, expedita similique,
+                                    perferendis magni ea aspernatur. Quidem veritatis deserunt voluptas unde excepturi?
+                                </p>
+                                <div class="d-flex">
+                                    <button class="btnreadmore">Read More</button>
+                                </div>
+                            </div>
+                            <img src="~/assets/images/girl.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item ">
+                    <img width=100 src="~/assets/images/banner.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <div class="d-flex justify-content-lg-center">
+                            <div class="d-flex flex-column justify-content-lg-start">
+                                <h2 class="text-lg-start" style="font-size: 50px; padding-top: 70px;">
+                                    WELCOME TO
+                                </h2>
+                                <h1 style="font-size: 150px;">LABSPA</h1>
+                                <p class="text-lg-start">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Facere dignissimos cumque
+                                    temporibus, nam unde inventore iure necessitatibus sunt, expedita similique,
+                                    perferendis magni ea aspernatur. Quidem veritatis deserunt voluptas unde excepturi?
+                                </p>
+                                <div class="d-flex">
+                                    <button class="btnreadmore">Read More</button>
+                                </div>
+                            </div>
+                            <img src="~/assets/images/girl.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </header>
+    <section id="service" class=" pt-5">
+        <div class="justify-content-lg-center align-items-lg-center d-flex">
+            <img width="50" src="~/assets/images/head.png" alt="">
+            <h2 style="font-size: 40px;" class="text-dark fw-bold">Our Services</h2>
+        </div>
+        <div class="container pt-5">
+
+            <div class="row ">
+                <div class="col-lg-4">
+                    <div class="d-flex flex-column justify-content-sm-center text-sm-center">
+                        <div class=" d-flex justify-content-sm-center">
+                            <img width="100" src="~/assets/images/thr.png" alt="">
+                        </div>
+                        <h2>COSMETIC</h2>
+                        <p style="color:black;">
+                            some form, by injected humour, or randomised words which don't look even slightly believable.
+                            If you are
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="d-flex flex-column justify-content-sm-center text-sm-center">
+                        <div class=" d-flex justify-content-sm-center">
+                            <img width="100" src="~/assets/images/thr1.png" alt="">
+                        </div>
+                        <h2>COSMETIC</h2>
+                        <p style="color:black;">
+                            some form, by injected humour, or randomised words which don't look even slightly believable.
+                            If you are
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="d-flex flex-column justify-content-sm-center text-sm-center">
+                        <div class=" d-flex justify-content-sm-center">
+                            <img width="100" src="~/assets/images/thr2.png" alt="">
+                        </div>
+                        <h2>COSMETIC</h2>
+                        <p style="color:black;">
+                            some form, by injected humour, or randomised words which don't look even slightly believable.
+                            If you are
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="justify-content-lg-center align-items-lg-center d-flex pt-5">
+            <button class="btnread2">Read More</button>
+        </div>
+    </section>
+    @if (Model != null && Model.Count > 0)
+    {
+        <section id="ourcustomer" class="pt-5">
+            <div class="owl-carousel ">
+                @foreach (var item in Model)
+                {
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <img class="customerimg"  src="~/assets/images/@item.Image" alt="">
+                        <div class="d-flex flex-column justify-content-center align-items-center pt-4">
+                            <h3>@item.Name</h3>
+                            <small style="color: #BD193B;">@item.Title.ToLower()</small>
+                            <p class="text-center" style="padding-left: 20%; padding-right: 20%; color:black;">
+                                @item.Description
+                            </p>
+                            <img class="pt-3 icon1" style="width: 80px;" src="~/assets/images/icon.png" alt="">
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+    <section class="mt-5"
+             style="background: url(/../assets/images/contact.jpg); background-size: 100% 100%; background-repeat: no-repeat;padding: 90px 0;">
+        <div class="justify-content-lg-center align-items-lg-center d-flex">
+            <img width="50" src="~/assets/images/head.h.png" alt="">
+            <h2 style="font-size: 40px;" class="text-dark fw-bold">
+                Request <span style="font-size: 40px;"
+                              class="text-light"> A call Back</span>
+            </h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="pt-5">
+                        <input type="text" class="form-control" placeholder="Name"
+                               style="border-radius: 50px; padding: 20px 20px; border:none;">
+                    </div>
+                    <div class="pt-5">
+                        <input type="email" class="form-control" placeholder="Email"
+                               style="border-radius: 50px; padding: 20px 20px; border:none;">
+                    </div>
+                    <div class="pt-5">
+                        <input type="number" class="form-control" placeholder="Phone Number"
+                               style="border-radius: 50px; padding: 20px 20px; border:none;">
+                    </div>
+                    <div class="pt-5">
+                        <textarea type="number" class="form-control" placeholder="Message"
+                                  style="border-radius: 50px; padding: 20px 20px; border:none;" rows="4"></textarea>
+                    </div>
+                    <div class="pt-5">
+                        <button style="padding: 20px 80px; border-radius: 50px; border: none; background-color: black; color: white;">
+                            SEND
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6 ">
+                    <div style="padding: 50px 0px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d97236.43465759905!2d49.7849199826634!3d40.39470211181718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6bd6211cf9%3A0x343f6b5e7ae56c6b!2sBaku%2C%20Azerbaijan!5e0!3m2!1sen!2s!4v1655975556515!5m2!1sen!2s"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="contact">
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-4">
+                        <form class="bottom_form">
+                            <div class="d-flex pt-3 pb-5 gap-3">
+                                <h3>Newsletter</h3>
+                                <input class="enter" style="border-radius: 50px; padding: 20px 20px; border:none;"
+                                       placeholder="Enter your email" type="text" name="Enter your email">
+                                <button class="sub_btn">subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-md-12">
+                        <div class="row">
+                            <div class="col-md-7 padd_bottom">
+                                <div class="heading3">
+                                    <a href="#"><img src="~/assets/images/logo1.png" alt="#"></a>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
+                                        volutpat mattis eros.Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                                        Donec odio. Quisque volutpat mattis eros.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-5 padd_bottom padd_bott">
+                                <div class="heading3">
+                                    <h3>Contact Us</h3>
+                                    <ul class="infometion">
+                                        <li><a href="#">Donec odio. Quisque </a></li>
+                                        <li><a href="#">volutpat mattis</a></li>
+                                        <li><a href="#">eros.Lorem ipsum dolor</a></li>
+                                        <li><a href="#">sit amet, consectetuer </a></li>
+                                        <li><a href="#">adipiscing elit. Donec </a></li>
+                                        <li><a href="#">odio. Quisque volutpat </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-1 padd_bottom">
+                                <div class="heading3">
+                                    <h3>INFORMATION</h3>
+                                    <ul class="infometion">
+                                        <li><a href="#">Donec odio. Quisque </a></li>
+                                        <li><a href="#">volutpat mattis</a></li>
+                                        <li><a href="#">eros.Lorem ipsum dolor</a></li>
+                                        <li><a href="#">sit amet, consectetuer </a></li>
+                                        <li><a href="#">adipiscing elit. Donec </a></li>
+                                        <li><a href="#">odio. Quisque volutpat </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="heading3">
+                                    <h3>MY ACCOUNT</h3>
+                                    <ul class="infometion">
+                                        <li><a href="#">Donec odio. Quisque </a></li>
+                                        <li><a href="#">volutpat mattis</a></li>
+                                        <li><a href="#">eros.Lorem ipsum dolor</a></li>
+                                        <li><a href="#">sit amet, consectetuer </a></li>
+                                        <li><a href="#">adipiscing elit. Donec </a></li>
+                                        <li><a href="#">odio. Quisque volutpat </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>© 2022 All Rights Reserved. <a href="https://html.design/"> Free html Templates</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/vendor/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+</body>
+
+</html>
